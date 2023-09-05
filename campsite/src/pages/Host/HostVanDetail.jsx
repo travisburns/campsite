@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Outlet, useParams } from 'react-router-dom'
 
 
 
@@ -24,7 +24,8 @@ const HostVanDetail = () => {
     return (
         <section>
             <Link
-                to="."
+                to=".."
+                relative='path'
                 className='back-button'
                 >&larr; <span>Back to all vans</span></Link>
             <div className='host-van-detail-layout-container'>
@@ -36,6 +37,7 @@ const HostVanDetail = () => {
       <p>{currentVan.type}</p>
       </div>
     </div>
+    <Outlet />
     </div>
         </section>
 
