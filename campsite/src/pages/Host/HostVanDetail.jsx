@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 
@@ -17,14 +17,29 @@ const HostVanDetail = () => {
   if (!currentVan) {
     return <h1>Loading...</h1>
   }
+
+
+
   
     return (
-    <div>
+        <section>
+            <Link
+                to="."
+                className='back-button'
+                >&larr; <span>Back to all vans</span></Link>
+            <div className='host-van-detail-layout-container'>
+      <div className='host-van-detail'>
       <img src={currentVan.imageUrl} />
+      <div className='host-van-detail-info-text'>
       <h2>{currentVan.name}</h2>
       <p>{currentVan.price}</p>
       <p>{currentVan.type}</p>
+      </div>
     </div>
+    </div>
+        </section>
+
+    
   )
 }
 
