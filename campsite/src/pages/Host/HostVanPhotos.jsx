@@ -3,7 +3,7 @@ import React from 'react'
 const HostVanPhotos = () => {
   return (
     <div>
-      ??
+     Photos
     </div>
   )
 }
