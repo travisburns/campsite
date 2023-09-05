@@ -9,7 +9,7 @@ const Vans = () => {
 
    //grab the type searchParams
     const typeFilter = searchParams.get("type")
-    console.log(typeFilter)
+   
 
 
     React.useEffect(()=> {
@@ -18,7 +18,13 @@ const Vans = () => {
             .then(data => setVans(data.vans))
     }, [])
 
-    const vanElements = vans.map(van => (
+
+
+    const displayedVans = typeFilter
+        ? vans.filter(van => van.type === typeFilter)
+        : vans
+
+    const vanElements = displayedVans.map(van => (
        <div key={van.id} className='van-tile'>
         <Link to={`/vans/${van.id}`} >  
             <img src={van.imageUrl} />
