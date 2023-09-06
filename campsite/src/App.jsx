@@ -4,7 +4,7 @@ import './App.css'
 import Home from './pages/Home'
 import About from './pages/About'
 import {RouterProvider, createBrowserRouter, createRoutesFromElements, Route, Link} from "react-router-dom"
-import Vans from './pages/Vans/Vans'
+import Vans, { loader as vansLoader } from './pages/Vans/Vans'
 import './server'
 import VanDetail from './pages/Vans/VanDetail'
 import Layout from './components/Layout'
@@ -24,7 +24,7 @@ const router = createBrowserRouter(createRoutesFromElements(
   <Route element={<Layout /> }>
   <Route index element={<Home />} />
   <Route path='/about' element={<About />} />
-  <Route path='/vans' element={<Vans />} />
+  <Route path='/vans' element={<Vans />} loader ={vansLoader}/>
   <Route path='/vans/:id' element={<VanDetail />} />
 
 
