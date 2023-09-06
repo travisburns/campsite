@@ -44,27 +44,27 @@ const Vans = () => {
    <div className='van-life-container'>
     <h1>Explore our van options</h1>
     <div className='van-list-filter-buttons'>
-        <Link 
-            to="?type=simple" 
+        <button 
+            onClick={() => setSearchParams({type: "simple"} )}
             className='van-type simple'
             > Simple
-            </Link> 
+            </button> 
             
-            <Link 
-            to="?type=luxury" 
+            <button 
+            onClick={() => setSearchParams({type: "luxury"})}
             className='van-type luxury'
             > Luxury
-            </Link>
-            <Link 
-            to="?type=rugged" 
+            </button>
+            <button 
+            onClick={() => setSearchParams({type: "rugged"})} 
             className='van-type rugged'
             > Rugged
-            </Link>
-            <Link 
-            to="." 
+            </button>
+            <button 
+            onClick={() => setSearchParams({})}
             className='van-type clear'
             > Clear
-            </Link>
+            </button>
        
     </div>
    <div className='van-list'>
