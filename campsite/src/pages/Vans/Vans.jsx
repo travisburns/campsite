@@ -10,29 +10,30 @@ export function loader() {
 
 export default function Vans() {
     const [searchParams, setSearchParams] = useSearchParams()
-    const [vans, setVans] = React.useState([])
+    // const [vans, setVans] = React.useState([])
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(null)
-    const data = useLoaderData()
+
+    const vans = useLoaderData()
 
     const typeFilter = searchParams.get("type")
 
-    React.useEffect(() => {
-        async function loadVans() {
-            setLoading(true)
-            try {
-                const data = await getVans()
-                setVans(data)
-            } catch(err) {
-                setError(err)
-            } finally {
-                setLoading(false)
-            }
-         }
+    // React.useEffect(() => {
+    //     async function loadVans() {
+    //         setLoading(true)
+    //         try {
+    //             const data = await getVans()
+    //             setVans(data)
+    //         } catch(err) {
+    //             setError(err)
+    //         } finally {
+    //             setLoading(false)
+    //         }
+    //      }
 
-        loadVans()
+    //     loadVans()
 
-    }, [])
+    // }, [])
 
     const displayedVans = typeFilter
         ? vans.filter(van => van.type === typeFilter)
