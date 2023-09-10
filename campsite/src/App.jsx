@@ -19,11 +19,16 @@ import HostVanPhotos from './pages/Host/HostVanPhotos'
 import HostVanInfo from './pages/Host/HostVanInfo'
 import NotFound from './pages/NotFound'
 import Error from './components/Error'
+import Login from './pages/Vans/Login'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route element={<Layout /> } errorElement={<Error />}  >
   <Route index element={<Home />} />
   <Route path='/about' element={<About />} />
+  <Route
+    path='login'
+    element={<Login />} 
+    />
   <Route 
     path='/vans' 
     element={<Vans />} 
