@@ -2,6 +2,14 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
+    const activeStyles = {
+      fontWeight: "bold",
+      textDecoration: "underline",
+      color: "#161616"
+    }
+
+
+
   return (
     <header>
      <Link className='site-logo' to="/">#VanLife</Link>
@@ -26,14 +34,14 @@ const Header = () => {
             >
               Vans
         </NavLink>
-        <NavLink
+        <Link
           to="login" className="login-link">
             <img 
             src="../assets/images/avatar-action.png"
             className='login-icon'
         />
 
-        </NavLink>
+        </Link>
        
         
     </nav>
