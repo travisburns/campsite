@@ -1,22 +1,15 @@
 import React from "react"
 import { useParams, Link, NavLink, Outlet, useLoaderData } from "react-router-dom"
-import {getHostVans} from "../../api"
-import {requireAuth} from "../../utils"
-
+import { getHostVans } from "../../api"
+import { requireAuth } from "../../utils"
 
 export async function loader({ params }) {
     await requireAuth()
     return getHostVans(params.id)
 }
 
-
-
-
 export default function HostVanDetail() {
-    
     const currentVan = useLoaderData()
-
-
 
     const activeStyles = {
         fontWeight: "bold",
@@ -67,7 +60,7 @@ export default function HostVanDetail() {
                         Photos
                     </NavLink>
                 </nav>
-                <Outlet context={{ currentVan }}/>
+                <Outlet context={{ currentVan }} />
             </div>
         </section>
     )
