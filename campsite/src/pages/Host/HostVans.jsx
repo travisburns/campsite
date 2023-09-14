@@ -1,15 +1,18 @@
 import React from 'react'
-import { Link } from "react-router-dom"
-import { useEffect } from 'react'
+import { Link, useLoaderData } from "react-router-dom"
+import {getHostVans} from "../../api"
+import {requireAuth} from "../../utils"
+
+
+export async function loader() {
+    await requireAuth()
+    return getHostVans()
+}
+
 
 const HostVans = () => {
-  const [vans, setVans] = React.useState([])
-
-  React.useEffect(() => {
-        fetch("/api/host/vans")
-        .then(res => res.json())
-        .then(data => setVans(data.vans))
-  }, [])
+  
+  const vans = useLoaderData()  
 
   const hostVansEls = vans.map(van => (
     <Link
@@ -32,15 +35,10 @@ const HostVans = () => {
     <section>
         <h1 className='host-vans-title'>Your listed Vans</h1>
         <div className='host-vans-list'>
-            {
-                vans.length > 0 ? (
+           
                     <section>
                         {hostVansEls}
                     </section>
-                ) : (
-                    <h2>Loading...</h2>
-                )
-            }
         </div>
     </section>
   )
