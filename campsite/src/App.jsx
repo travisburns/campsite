@@ -52,7 +52,10 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route
       index
       element={<Dashboard />}
-      loader={async () => await requireAuth()}
+      loader={async () => {
+       return await requireAuth()
+      
+      }}
     />
     <Route
       path="income"

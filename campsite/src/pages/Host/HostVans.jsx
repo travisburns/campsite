@@ -8,6 +8,7 @@ export async function loader() {
     return getHostVans()
 }
 
+
 export default function HostVans() {
     const vans = useLoaderData()
 
